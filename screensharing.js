@@ -1,14 +1,14 @@
 if (navigator.userAgent.indexOf('electron') != -1)
 {
 	function onAccessApproved(desktop_id)
-    {
+	{
 		if (!desktop_id)
-	    {
+		{
 			console.log('Desktop Capture access rejected.');
 			return;
 		}
 
-window.DESKTOP_ID = desktop_id;
+		window.DESKTOP_ID = desktop_id;
 		console.log("Desktop sharing started...desktop_id:" + desktop_id);
 /*        
 		navigator.webkitGetUserMedia(
@@ -46,10 +46,10 @@ window.DESKTOP_ID = desktop_id;
     
 		var event_data = JSON.parse(event.data);
 		if (event_data.type === 'gotScreenSharing' && event_data.sourceId)
-     	{
-     		console.log('Use desktop capture ID in BlueJeans = ' + event_data.sourceId);
+     		{
+     			console.log('Use desktop capture ID in BlueJeans = ' + event_data.sourceId);
         
-	        onAccessApproved(event_data.sourceId);
+			onAccessApproved(event_data.sourceId);
 		}
 }
 	window.addEventListener("message", receiveMessage, false);
@@ -88,20 +88,21 @@ window.DESKTOP_ID = desktop_id;
 			}
 		}
 		else if (message && message.type && message.type === 'getScreen')
-    	{
-    		console.log("Got the getScreen -- sending " + window.DESKTOP_ID );
-            responseCallback({"type":"gotScreenSharing", "sourceId":window.DESKTOP_ID, "desktopMediaRequestId":0});
-	    }
-    	else
-	    {
-    		console.log('Unknown message');
-	    }
+		{
+			console.log("Got the getScreen -- sending " + window.DESKTOP_ID );
+			responseCallback({"type":"gotScreenSharing", "sourceId":window.DESKTOP_ID, "desktopMediaRequestId":0});
+		}
+		else
+		{
+			console.log('Unknown message');
+		}
 
 		return true;
 	};
-   
-    var elemDiv = document.createElement('div');
+ 
+	// Used to fake the UI so it thinks the extension is installed
+	var elemDiv = document.createElement('div');
 	elemDiv.className = 'InMeetingExtensionIsInstalled';
-    elemDiv.setAttribute('data-extension-id','nodamnmigpadbnfioofpbacngdlcidgn');
+	elemDiv.setAttribute('data-extension-id','nodamnmigpadbnfioofpbacngdlcidgn');
 	document.body.appendChild(elemDiv);
 }
