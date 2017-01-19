@@ -51,7 +51,8 @@ if (navigator.userAgent.indexOf('electron') != -1)
         
 			onAccessApproved(event_data.sourceId);
 		}
-}
+	}
+
 	window.addEventListener("message", receiveMessage, false);
 
 	setTimeout(function ()
