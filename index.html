@@ -1,0 +1,52 @@
+<html>
+        <body>
+                <h1>embed.js Demo</h1>
+                <script>
+
+			function receiveMessage(event)
+			{
+				console.log('Got message in top level window!');
+			
+				var event_data = JSON.parse(event.data);
+				if (event_data.type === 'getScreen')
+				{
+					var desktopCapturer = require('electron').desktopCapturer;
+					desktopCapturer.getSources({types:['window', 'screen']}, function (error, sources)
+					{
+						for (let source of sources)
+						{
+							console.log("Name: " + source.name + "; ID: " + source.id);
+
+							if (source.id.startsWith('screen'))
+							{
+					    			var event_data = {'type':'gotScreenSharing', 'sourceId':source.id};
+								event.source.postMessage(JSON.stringify(event_data), event.origin);
+								return;
+							}
+						}
+					});			
+				}
+				else
+				{
+					console.log('Unknown top level message received!');
+				}
+			}
+
+			window.addEventListener("message", receiveMessage, false);
+
+		</script>
+		
+                <div id="myclient"><div>
+                <script type="text/javascript">
+                        var BJN_CLIENT =
+                        {
+                                content: 'myclient',
+				meetingId: '156783457',
+                                name: 'John Doe',
+                                email: 'nobody@nowhere.com'
+                        };
+                </script>
+                <script id="bjn-embed" src="https://bluejeans.com/static/js/embed.js"></script>
+
+        </body>
+</html>
