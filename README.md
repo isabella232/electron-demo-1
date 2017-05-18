@@ -14,6 +14,8 @@ BlueJeans has embraced WebRTC supports it across a variety of browsers, includin
 
 You can now embed a video conference from BlueJeans via a simple HTML IFRAME and experience our meetings within your Electron app.
 
+![Demo](demo.png)
+
 ## Screen Sharing
 
 Electron provides APIs for screen sharing.  Some JavaScript has to be added to the container in order to facilitate this with BlueJeans.  That code exists in this GitHub repo.
