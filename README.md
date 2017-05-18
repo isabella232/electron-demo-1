@@ -22,7 +22,7 @@ On the Electron home page, they have a quick start app you can download.  We hav
 
 You can find our version [here](electron-quick-start-with-bluejeans/).  Look in the index.html file for the changes.
 
-To run the sample:
+To run the sample, execute the following from within the project directory:
 
 ```
 npm install && npm start
