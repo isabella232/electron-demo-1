@@ -16,6 +16,18 @@ You can now embed a video conference from BlueJeans via a simple HTML IFRAME and
 
 ![Demo](demo.png)
 
+## Sample
+
+On the Electron home page, they have a quick start app you can download.  We have taken that and integrated a BlueJeans meeting into it with just a few lines of HTML as an example.
+
+You can find our version [here](electron-quick-start-with-bluejeans/).  Look in the index.html file for the changes.
+
+To run the sample:
+
+```
+npm install && npm start
+```
+
 ## Screen Sharing
 
 Electron provides APIs for screen sharing.  Some JavaScript has to be added to the container in order to facilitate this with BlueJeans.  That code exists in this GitHub repo.
