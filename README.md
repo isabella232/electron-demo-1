@@ -4,7 +4,7 @@
 
 Nearly since the inception of the web browser, vendors relied on plugins when things needed to be done in a browser that the browser couldn't do through built-in technologies.  Audio and video support were a few of these things.
 
-However, with the advent of WebRTC, browsers are getting audio and video technologies baked into their core and expose through JavaScript interfaces that can be used by web applications.
+However, with the advent of WebRTC, browsers are getting audio and video technologies baked into their core and exposed through JavaScript interfaces that can be used by web applications.
 
 Electron itself contains the Chromium browser (the foundation of Google Chrome).  Since 2016, WebRTC has been included as well.
 
